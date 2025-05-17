@@ -1,0 +1,259 @@
+//reference website https://animated-gingersnap-8cf7f2.netlify.app/
+//logginin
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully!');
+
+  await browser.close();
+})();
+
+//Test Case 1 
+
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const { test, expect } = require('@playwright/test');
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully! Test 1');
+
+  await page.click('text=Web Application');
+  const task = await page.waitForSelector('text=Implement user authentication');
+  const parentColumn = await task.evaluateHandle(node => node.closest('.todo-column, .column-todo'));
+  if (!parentColumn) throw new Error('Task is not in "To Do" column');
+
+  console.log('✅ Task is in "To Do" column Test 1');
+
+  const tag = await task.evaluateHandle(node => node.closest('.Feature, .High Priority'));
+  if (!tag) throw new Error('Tag does not say "feature" in column');
+  if (!tag) throw new Error('Tag does not say "High Priority" in column');
+ {
+
+    console.log('✅ Task has correct tags Test 1');
+ }
+
+
+  await browser.close();
+})();
+
+
+
+//Test Case 2 
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const { test, expect } = require('@playwright/test');
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully! Test 2');
+
+  await page.click('text=Web Application');
+  const task = await page.waitForSelector('text=Fix Navigation Bug');
+  const parentColumn = await task.evaluateHandle(node => node.closest('.todo-column, .column-todo'));
+  if (!parentColumn) throw new Error('Task is not in "To Do" column');
+
+  console.log('✅ Task is in "To Do" column Test 2');
+
+  const tag = await task.evaluateHandle(node => node.closest('.Bug'));
+  if (!tag) throw new Error('Tag does not say "Bug" in column');
+  
+ {
+
+    console.log('✅ Task has correct tags Test 2');
+ }
+
+
+  await browser.close();
+})();
+
+
+//Test Case 3
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const { test, expect } = require('@playwright/test');
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully! Test 3');
+
+  await page.click('text=Web Application');
+  const task = await page.waitForSelector('text=Design System Updates');
+  const parentColumn = await task.evaluateHandle(node => node.closest('.Inprogress-column, .coulumn-inprogress'));
+  if (!parentColumn) throw new Error('Task is not in "In Progress" column');
+
+  console.log('✅ Task is in "To Do" column Test 3');
+
+  const tag = await task.evaluateHandle(node => node.closest('.Design'));
+  if (!tag) throw new Error('Tag does not say "Design" in column');
+  
+ {
+
+    console.log('✅ Task has correct tags Test 3');
+ }
+
+
+  await browser.close();
+})();
+
+
+//Test Case 4
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const { test, expect } = require('@playwright/test');
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully! Test 4');
+
+  await page.click('text=Mobile Application');
+  const task = await page.waitForSelector('text=Push Notification System');
+  const parentColumn = await task.evaluateHandle(node => node.closest('.todo-column, .column-todo'));
+  if (!parentColumn) throw new Error('Task is not in "To Do" column');
+
+  console.log('✅ Task is in "To Do" column Test 4');
+
+  const tag = await task.evaluateHandle(node => node.closest('.Feature'));
+  if (!tag) throw new Error('Tag does not say "Feature" in coulmn');
+  
+ {
+
+    console.log('✅ Task has correct tags Test 4');
+ }
+
+
+  await browser.close();
+})();
+
+//Test Case 5
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const { test, expect } = require('@playwright/test');
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully! Test 5');
+
+  await page.click('text=Mobile Application');
+  const task = await page.waitForSelector('text=Offline Mode');
+  const parentColumn = await task.evaluateHandle(node => node.closest('.inprogress-column, .column.inprogress'));
+  if (!parentColumn) throw new Error('Task is not in "In Progress" column');
+
+  console.log('✅ Task is in "To Do" column Test 5');
+
+  const tag = await task.evaluateHandle(node => node.closest('.Feature, .High Priority'));
+  if (!tag) throw new Error('Tag does not say "feature" in column');
+  if (!tag) throw new Error('Tag does not say "High Priority" in column');
+ {
+
+    console.log('✅ Task has correct tags Test 5');
+ }
+
+
+  await browser.close();
+})();
+
+//Test 6
+(async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const { test, expect } = require('@playwright/test');
+
+ 
+  await page.goto('https://animated-gingersnap-8cf7f2.netlify.app/');
+
+ 
+     await page.type('#username', 'admin');
+     await page.type('#password', 'password123');
+
+ 
+  await page.click('button[type="submit"]');
+
+  console.log('Logged in successfully! Test 6');
+
+  await page.click('text=Mobile Application');
+  const task = await page.waitForSelector('text=App Icon Design');
+  const parentColumn = await task.evaluateHandle(node => node.closest('.Done-column, .column-Done'));
+  if (!parentColumn) throw new Error('Task is not in "To Do" column');
+
+  console.log('✅ Task is in "To Do" column Test 6');
+
+  const tag = await task.evaluateHandle(node => node.closest('.Design'));
+  if (!tag) throw new Error('Tag does not say "Design" in coulmn');
+  
+ {
+
+    console.log('✅ Task has correct tags Test 6');
+ }
+
+
+  await browser.close();
+})();
+
+
+
